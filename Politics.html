@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+        <head>
+                <!-- Page information -->
+                <meta charset="UTF-8" />
+                <meta name="node_id" content="politics">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="shortcut icon" href="/wiki/favicon.ico" />
+
+                <!-- Set title -->
+                <title>Obsidian-Html/Notes</title>
+
+                <!-- Includes -->
+                <script src="/wiki/obs.html/static/obsidian_core.js"></script>
+<script src="/wiki/obs.html/static/encoding.js"></script>
+<link rel="stylesheet" href="/wiki/obs.html/static/master.css" />
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+            'securityLevel': 'loose',
+            'theme': 'dark',
+            'themeVariables': {
+                    'darkMode': true,
+            }
+    });
+</script>
+<script>
+  MathJax = {
+    loader: {
+      load: [
+        '[tex]/action',
+        'output/chtml',
+        '[tex]/centernot'
+      ]
+    },
+    tex: {
+      inlineMath: [ ["\\(","\\)"] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true,
+      processEnvironments: true,
+      packages: {'[+]': ['centernot']}
+    }
+  };
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<script src="/wiki/obs.html/static/flexsearch.bundle.js"></script>
+<script src="/wiki/obs.html/static/pako.js"></script>
+<script src="/wiki/obs.html/static/search.js"></script>
+<script src="/wiki/obs.html/static/dirtree.js"></script>
+
+
+
+
+                <!-- Onload tweaks -->
+                <script>
+                        const CURRENT_NODE = 'politics';
+                        const HTML_URL_PREFIX = '/wiki';
+                        const PAGE_DEPTH = 0;
+                </script>
+        </head>
+
+<body class="theme-obs-light">
+        <div id="antiflash" style="display: none;"></div>
+        <script>
+                document.getElementById('antiflash').style.display = 'block';
+        </script>
+        <div id="search-master-div">
+    <div id="search-slab" king_ramses="return the slaaab">
+            <div id="search-controls">
+                    <input id="search_string" placeholder="Type to search notes" type="text" />
+                    <div class="tooltip" style="display: none;">
+                        <input type="checkbox" id="hard_search" name="hard" />
+                        <span class="tooltiptext">Hard search (require exact match)</span>
+                    </div>
+                    <div id="search-results-box">
+                        <div id="search-results"></div>
+                    </div>
+                    <div id="search-instructions">
+                        <div class="prompt-instruction mobile">
+                            <button onclick="toggle_id('search-master-div');"><b>Close</b> Search </button>
+                        </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("search-master-div").addEventListener('click', e => {
+            if(e.target !== e.currentTarget){
+                    return
+            }
+            toggle_id('search-master-div');
+    })
+    document.getElementById("search_string").addEventListener("input", function(event) {
+            setTimeout( () =>run_search('search_string', 'hard_search'), 100 );
+    }); 
+    document.getElementById("hard_search").addEventListener("click", function(event) {
+            setTimeout( () =>run_search('search_string', 'hard_search'), 100 );
+    });
+
+    window.addEventListener('keydown', e => {
+        if((e.key=='Escape'||e.key=='Esc'||e.keyCode==27)){
+            toggle_id('search-master-div');
+            return false;
+        } 
+    }, true);
+
+    function click_list_link(element){
+        element.parentElement.getElementsByTagName('a')[0].click()
+    }
+</script>
+
+        <div id="page_holder" class="flex_col">
+                <div id="header" class="header">
+    <div id="header_flex" class="flex_row">
+            <a href="/wiki/index.html" id="homelink" title="Clear screen and go to homepage">Obsidian-Html/Notes</a>
+            <div id="menu_toggle_button" class="navbar-button requires_js" onclick="toggle_menu()">
+                    ≡
+            </div>
+            <div id="navbar" class="navbar requires_js">
+                    
+                    <div class="icon-tray">
+                            <div id="theme-button" class="theme-button requires_js" title="Change theme" onclick="toggle_theme_popup(this)">
+    T
+</div>
+<script>
+    function toggle_theme_popup(el){
+        // make theme button show that it's active by adding the .active class
+        toggle(el);
+
+        // show the theme selector
+        toggle_id('theme-popup')
+
+        let h2 = document.getElementById('header2')
+        if (h2){
+            let pu = document.getElementById('header2').getElementsByClassName('popup')[0];
+            toggle(pu);
+        }
+    }
+
+    function disable_theme_popup(){
+        disable_id('theme-button');
+
+        // show the theme selector
+        disable_id('theme-popup')
+
+        let h2 = document.getElementById('header2')
+        if (h2){
+            let pu = document.getElementById('header2').getElementsByClassName('popup')[0];
+            disable(pu);
+        }
+    }
+</script>
+                                    <div onclick="openSearch()" class="theme-button requires_js">
+            <img src = "/wiki/obs.html/static/search.svg" alt="Search notes" title="Search notes" style="margin: 4px;"/>
+        </div>
+        <script>
+            function openSearch(){
+                // toggle search popup and continue with extra code if it is enabled this time
+                if (toggle_id('search-master-div')){
+                    // get input field and temporarily disable it
+                    let ss = document.getElementById('search_string');
+                    ss.value = 'Seach data initializing...';
+                    ss.readOnly = true; 
+
+                    // load search data if not yet done so
+                    setTimeout(function(){
+                        LoadSearchData()
+
+                        // clear input and put focus on it so that we can start typing immediately
+                        ss.value = '';
+                        ss.readOnly = false; 
+                        ss.focus()
+                        ss.select()
+                    }, 100);
+                }
+            }
+        </script>
+                                    <div class="graph_header_div requires_js">
+            <a id="graph_link" class="system-link" href="/wiki/obs.html/graph/index.html?node=politics" title="Open fullpage Graph">
+                    <img class="graph_header_div_svg" src = "/wiki/obs.html/static/graph.svg" alt="Open fullpage Graph" style="margin: 2px; width: 17px;"/>
+            </a>
+        </div>
+                                    <div >
+            <a id="dirtree_link" class="system-link" href="/wiki/obs.html/dir_index.html" title="View directory tree">
+                    <img src = "/wiki/obs.html/static/dirtree.svg" style="width: 12px; padding: 4px;" alt="Directory tree link"/>
+            </a>
+        </div>
+                            <div>
+    <a href="/wiki/obs.html/tags/index.html" title="Open tag view">
+            <img src = "/wiki/obs.html/static/hashtag.svg" alt="RSS Feed link" style="width: 24px; margin-left: -2px; margin-top: -2px;"/>
+    </a>
+</div>
+                            
+                    </div>
+                    <div style="display: flex; flex-direction:column">
+                        <div id="left_pane_toggle_nav" class="left_pane_toggle_nav">Toggle Directory Tree Pane</div>
+                        <div id="right_pane_toggle_nav" class="right_pane_toggle_nav">Toggle Table of Contents Pane</div>
+                    </div>
+            </div>
+    </div>
+    <div class="popup" id="theme-popup">
+    <label for="cars">Theme </label>
+
+    <select name="theme" id="theme" onchange="set_theme(this.value)">
+      <option value="obs-light" selected="selected">obsidian-light</option>
+      <option value="obs-dark">obsidian-dark</option>
+    </select> 
+</div>
+</div>
+                <div class="flex_row">
+                        <div id="left_pane" class="left_pane active">
+    <div id="left_pane_fold_header" class="left_pane_fold_header fold_header">x</div>
+    <div id="left_pane_content" class="left_pane_content">
+            <div id="dirtree"><ul class="dir-list">
+	<li><div class="file-icon"></div><a class="" href="/wiki/Blackmarsh_Map.html"  >Blackmarsh_Map</a></li>
+	<li><div class="file-icon non-md-file"></div><a class="" href="/wiki/Blackmarsh_Southland_Combined.jpg"  class="external-link">Blackmarsh_Southland_Combined.jpg</a></li>
+	<li><div class="file-icon"></div><a class="" href="/wiki/Duke_Caedwine.html"  >Duke_Caedwine</a></li>
+	<li><div class="file-icon"></div><a class="" href="/wiki/FAQ.html"  >FAQ</a></li>
+	<li><div class="file-icon"></div><a class="" href="/wiki/Overview.html"  >Overview</a></li>
+	<li><div class="file-icon"></div><a class="active current_page_dirtree" href="/wiki/Politics.html"  >Politics</a></li>
+	<li><div class="file-icon"></div><a class="" href="/wiki/The_Mountain_That_Fell.html"  >The_Mountain_That_Fell</a></li>
+	<li><div class="file-icon"></div><a class="" href="/wiki/The_Ostrobards.html"  >The_Ostrobards</a></li>
+	<li><div class="file-icon"></div><a class="" href="/wiki/credits.html"  >credits</a></li>
+	<li><div class="file-icon"></div><a class="" href="/wiki/index.html"  >index</a></li>
+</ul>
+</div>
+    </div>
+</div>
+                        <div class="container">
+                                <div class="content"><h1 id="politics">Politics</h1>
+<h2 id="major-political-entities-in-blackmarsh">Major Political Entities in Blackmarsh</h2>
+<p>Blackmarsh is a frontier region characterized by a fragmented political landscape in the wake of the Bright Empire's collapse. While some centralized powers exist, many settlements operate with significant autonomy, owing allegiance to regional powers or navigating their own course.   </p>
+<h3 id="remnants-of-fallen-empires">Remnants of Fallen Empires</h3>
+<ul>
+<li>
+<p>Castle Blackmarsh (Men, Neutral, Pop: 1,294): Once the seat of power for the Bright Empire, Castle Blackmarsh remains the largest settlement in the region, now under the control of the Greywood Elves.   </p>
+</li>
+<li>
+<p>Inuacus Keep (Men, Lawful): An outpost of Castle Blackmarsh, Inuacus Keep protects the surrounding lands from threats emerging from the Black Marshes and serves as a strategic counterpoint to potential uprisings from within Jorvik, a settlement with a history of allegiance to Atacyl Oathbinder.  This highlights the ongoing tensions and distrust that linger from past conflicts.   </p>
+</li>
+</ul>
+<h3 id="independent-settlements">Independent Settlements</h3>
+<ul>
+<li>
+<p>Oldan Hold (Dwarves, Lawful, Pop: 342): Representing the dwarven kingdom of Bolzak, Oldan Hold operates as a vital trade hub.   </p>
+</li>
+<li>
+<p>Ashdown (Mixed Races, Lawful, Pop: 121): Home to retired Blackmarsh Rangers and their families, Ashdown demonstrates the enduring influence of this organization even in seemingly independent settlements.   </p>
+</li>
+<li>
+<p>Strangeholms (Halflings, Lawful, Pop: 292): This halfling village exemplifies the agricultural productivity of certain regions in Blackmarsh. Strangeholms supplies a significant portion of Castle Blackmarsh's food, highlighting the interconnectedness of settlements within the region.   </p>
+</li>
+<li>
+<p>Greenton (Halflings, Lawful, Pop: 642): As the main settlement of the Newcombe Halflings, Greenton serves as a central marketplace for agricultural goods, attracting merchants from across Blackmarsh.   </p>
+</li>
+<li>
+<p>Jorvik (Men, Neutral, Pop: 481): Having harbored supporters of Atacyl Oathbinder, Jorvik maintains a tense relationship with Castle Blackmarsh.   </p>
+</li>
+</ul>
+<h3 id="duchy-of-the-ostrobards">Duchy of The Ostrobards</h3>
+<p>Occupying a significant portion of Blackmarsh's southern region, the Duchy of <a href="/wiki/The_Ostrobards.html">The_Ostrobards</a>, with Muncaester as its capital, exemplifies a more traditional feudal structure.   </p>
+<ul>
+<li>
+<p>Muncaester (Men (Ostrobard), Lawful, Pop: 895): Ruled by a Duke, Muncaester acts as a central market for goods such as furs, herbs, and farm produce.   </p>
+</li>
+<li>
+<p>Wedmor (Men (Ostrobard), Lawful, Pop: 255): This settlement focuses on cattle herding, indicating specialization within the Duchy and highlighting the importance of livestock in Blackmarsh's economy.   </p>
+</li>
+<li>
+<p>Camden (Men (Ostrobard), Lawful, Pop: 214): This settlement houses several iron mines, signifying the presence of valuable mineral resources within the Duchy and its importance as a potential source of weapons and armor.   </p>
+</li>
+</ul>
+<h3 id="vasan-viking-holdings">Vasan Viking Holdings</h3>
+<p>The Vasan Vikings, exiles from their conquered homeland, maintain a presence along Blackmarsh's eastern coast, centered around Castle Taldane.   </p>
+<ul>
+<li>Castle Taldane (Men (Vasan), Neutral, Pop: 200): Established by a deposed king, Castle Taldane represents the Vasan Vikings' ambition to reclaim their lost lands, although their current circumstances suggest limited success.  Internal strife and a lack of resources hinder their aspirations, making them a wild card in the region's political landscape.   </li>
+<li>
+<p>Gamla (Men (Vasan), Neutral, Pop: 405): This farming village, benefiting from geographical protection, enjoys relative prosperity compared to other Vasan settlements.   </p>
+</li>
+<li>
+<p>Daretop (Men (Vasan), Neutral, Pop: 415): Responsible for supplying Castle Taldane with food, Daretop showcases the interdependence between Vasan settlements and the challenges of maintaining control over a dispersed population.   </p>
+</li>
+<li>
+<p>Ysby (Men (Vasan), Neutral, Pop: 80): Initially a refuge for those fleeing the Grand Kingdom's conquest, Ysby has dwindled into a small fishing village.  Its strategic location, however, could become significant if tensions escalate between the Vasan Vikings and the expanding Grand Kingdom.   </p>
+</li>
+</ul>
+<h3 id="the-encroaching-grand-kingdom">The Encroaching Grand Kingdom</h3>
+<p>The Grand Kingdom represents an external force seeking to expand its influence into Blackmarsh.   </p>
+<ul>
+<li>Norbury Castle (Men, Lawful, Roster: 120): As the northernmost outpost of the Grand Kingdom's Vasa Province, Norbury Castle serves as a foothold for their expansionist ambitions.  Its establishment signifies the Grand Kingdom's growing interest in the region's resources and strategic importance.   </li>
+</ul>
+<h3 id="non-state-actors">Non-State Actors</h3>
+<ul>
+<li>Blackmarsh Rangers: Headquartered at Blackoak Castle, the Blackmarsh Rangers operate as a significant non-state power.  Their presence acts as a stabilizing force in an otherwise fragmented political landscape.   </li>
+<li>Brotherhood of the Raven: This group of elves, headquartered deep within the forests, represents a more insidious power.   </li>
+</ul>
+<hr />
+<p>The political landscape of Blackmarsh is a complex web of allegiances, rivalries, and ambitions. While the remnants of fallen empires, independent settlements, and external forces vie for control, non-state actors like the Blackmarsh Rangers and the Brotherhood of the Raven add further layers of intrigue to this volatile region. The presence of valuable resources intensifies competition and underscores the challenges of establishing lasting peace and stability in Blackmarsh.   </p></div>
+<div class="note-footer">
+<div class="backlinks">
+<h2>Backlinks</h2>
+<ul>
+	<li><a class="backlink" href="/wiki/Overview.html">overview</a></li>
+</ul>
+</div>
+
+<div class="tags">
+
+</div>
+
+</div>
+<div class="graph requires_js ">
+    <div id="A293165703158486264160358669417598514431{level}" class="graph_div"></div>
+
+    <div class="graph-instructions" id="D293165703158486264160358669417598514431{level}">
+        Left-click: follow link, Right-click: select node, Scroll: zoom
+    </div>
+    
+    <div class="graph-button-row" style="display:flex;">
+        <button class="graph_button graph_show_button" id="B293165703158486264160358669417598514431{level}" level="{level}" note_temp_id="293165703158486264160358669417598514431" onclick="window.ObsHtmlGraph.run(this, '293165703158486264160358669417598514431', 'politics');">
+            Show Graph
+        </button>
+        <button class="graph_button graph_type_button" id="C293165703158486264160358669417598514431{level}" style="flex:1" onclick="window.ObsHtmlGraph.switch_graph_type(this);">
+            2D
+        </button>
+    </div>
+</div>
+
+<script type="module">
+    if (window.ObsHtmlGraph == undefined){
+        import('/wiki/obs.html/static/graph.js').then((Module) => {
+            window.ObsHtmlGraph = Module;
+            window.ObsHtmlGraph.arm_page(document.getElementById('page_holder'))
+        })
+    }
+</script>
+
+
+
+
+                                <!-- end content -->
+                        </div>
+                        <div class="container_filler">
+                        </div>
+                        <div id="right_pane" class="right_pane active">
+    <div id="right_pane_fold_header" class="right_pane_fold_header fold_header">x</div>
+    <div id="right_pane_content" class="right_pane_content">
+            
+    </div>
+</div>
+                </div>
+        </div>
+
+        <script>
+                function handle_toggle_side_bar(e){
+                        let header;
+                        let pane; 
+                        let target = e.target
+
+                        // switch out the navbar button click for a header click
+                        if (target.id == 'left_pane_toggle_nav'){
+                                target = document.getElementById('left_pane_fold_header')
+                        }
+                        else if (target.id == 'right_pane_toggle_nav'){
+                                target = document.getElementById('right_pane_fold_header')
+                        }
+
+                        // get header and pane
+                        if (target.classList.contains('fold_header')) {
+                                header = target;
+                                pane = target.parentElement;
+                        }
+                        else {
+                                pane = target;
+                                header = target.getElementsByClassName('fold_header')[0];
+                        }
+                        toggle_side_bar(pane, header, true)
+                        e.stopPropagation();
+                }
+                function handle_toggle_side_bar_button(e){
+                        document.getElementById('menu_toggle_button').click()
+                        handle_toggle_side_bar(e);
+                }
+
+                function toggle_side_bar(pane, header, save) {
+                        let active = (pane.classList.contains('active'))
+                        if (active){
+                                disable_side_bar(pane, header, save);
+                        }
+                        else {
+                                enable_side_bar(pane, header, save);
+                        }
+                }
+                function enable_side_bar(pane, header, save){
+                        pane.classList.add('active');
+                        pane.removeEventListener('click', handle_toggle_side_bar);
+                        header.addEventListener('click', handle_toggle_side_bar);
+                        set_correct_header_symbol(header);
+                        if (save){ save_panel_folding_state(header, true) }
+                }
+                function disable_side_bar(pane, header, save){
+                        pane.classList.remove('active');
+                        pane.addEventListener('click', handle_toggle_side_bar);
+                        header.removeEventListener('click', handle_toggle_side_bar);
+                        set_correct_header_symbol(header);
+                        if (save){ save_panel_folding_state(header, false) }
+                }
+                function set_correct_header_symbol(header){
+                        let pane = header.parentElement;
+                        let symbol = [['>', '<'],['<', '>']]
+                        symbol = symbol[Number(header.classList.contains('right_pane_fold_header'))][Number(pane.classList.contains('active'))];
+                        console.log(symbol);
+                        header.innerHTML = symbol
+                        return header;
+                }
+                function panel_folding_get_panel_name(header){
+                        return ['left', 'right'][Number(header.classList.contains('right_pane_fold_header'))]
+                }
+                function save_panel_folding_state(header, active){
+                        ls_set('pane_folding_state_'+panel_folding_get_panel_name(header), Number(active));
+                }
+                function load_panel_folding_state(panel_name){
+                        val = ls_get('pane_folding_state_'+panel_name)
+                        if (!val){ return {'exists': false, 'value': null}}
+                        return {'exists': true, 'value': Boolean(Number(val))}
+                }
+                function set_pane_folding_start(left_header, right_header){
+                        // small screen = closed
+                        let right_pane_enabled = true;
+                        let left_pane_enabled = true;
+                        let w = window.visualViewport.width
+                        if (w < 1000){
+                                left_pane_enabled = false
+                        }
+                        if (w < 800){
+                                right_pane_enabled = false
+                        }
+
+                        // get saved values if present
+                        let rval = load_panel_folding_state('right')
+                        if (rval['exists']){
+                                right_pane_enabled = rval['value']
+                        }
+                        let lval = load_panel_folding_state('left')
+                        if (lval['exists']){
+                                left_pane_enabled = lval['value']
+                        }
+
+                        // default = enabled, so we only need to disable
+                        if (!left_pane_enabled){
+                                disable_side_bar(document.getElementById('left_pane'), document.getElementById('left_pane_fold_header'))
+                        }
+                        if (!right_pane_enabled){
+                                disable_side_bar(document.getElementById('right_pane'), document.getElementById('right_pane_fold_header'))
+                        }
+                }
+
+                function init_pane_folding(header){
+                        set_correct_header_symbol(header);
+                        header.addEventListener('click', handle_toggle_side_bar);
+                }
+                
+                
+                set_pane_folding_start()
+                init_pane_folding(document.getElementById('left_pane_fold_header'));
+                init_pane_folding(document.getElementById('right_pane_fold_header'));
+
+                document.getElementById('left_pane_toggle_nav').addEventListener('click', handle_toggle_side_bar_button);
+                document.getElementById('right_pane_toggle_nav').addEventListener('click', handle_toggle_side_bar_button);
+        </script>
+
+        <script src="/wiki/obs.html/static/load_dirtree_footer.js" type="text/javascript"></script>
+
+        
+
+
+
+
+</body>
+</html>
